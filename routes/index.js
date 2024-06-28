@@ -19,6 +19,11 @@ r.get('/mock/api/get', (req, res) => {
   res.status(200).json({ success: true, data });
 });
 
+r.get('/mock/api/get-with-param', (req, res) => {
+  const requestParams = req.query;
+  res.status(200).json({ success: true, query: requestParams });
+});
+
 r.post('/mock/api/post', (req, res) => {
   const body = req.body;
   res.status(200).json({ success: true, body });
