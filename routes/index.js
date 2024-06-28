@@ -26,6 +26,7 @@ r.get('/mock/api/get-with-param', (req, res) => {
 
 r.post('/mock/api/post', (req, res) => {
   const body = req.body;
+  console.log('req', req.headers, req.originalUrl, req.params, req.query, req.body);
   res.status(200).json({ success: true, body });
 });
 
