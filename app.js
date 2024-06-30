@@ -5,11 +5,11 @@ const routes = require('./routes');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({
-  origin: '*', // You can specify certain origins instead of '*'
-  methods: ['GET'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// app.use(cors({
+//   origin: '*', // You can specify certain origins instead of '*'
+//   methods: ['GET'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
