@@ -40,5 +40,23 @@ r.put('/v2/truetest/usage', (req, res) => {
   res.status(200).json({ usedQuota: 3, generatedTestCases: 181 });
 });
 
+r.get('/v2/truetest/quota', (req, res) => {
+  const accountId = req?.query?.accountId;
+
+  if (!accountId) {
+    return res.status(400).json({ error: 'Missing accountId query parameter' });
+  }
+
+  const response = {
+    "enabled": true,
+    "accountId": 101,
+    "quota": 9,
+    "source": "TRIAL_REQUEST", // RECURLY | TRIAL_REQUEST
+    "startDate": "2024-08-08T00:00:00Z",
+    "expiryDate": "2025-07-07T00:00:00Z",
+    "testcases": 1000
+  };
+  res.status(200).json({ ...response });
+});
 
 module.exports = r;
