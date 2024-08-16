@@ -30,4 +30,15 @@ r.post('/mock/api/post', (req, res) => {
   res.status(200).json({ success: true, body });
 });
 
+// Hoang API
+r.put('/v2/truetest/usage', (req, res) => {
+  const headers = req.headers;
+  const accountId = headers['x-account-id'];
+  if (!accountId) {
+    return res.status(400).json({ success: false, message: 'Missing x-account-id header' });
+  }
+  res.status(200).json({ usedQuota: 3, generatedTestCases: 181 });
+});
+
+
 module.exports = r;
