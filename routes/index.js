@@ -31,7 +31,7 @@ r.post('/mock/api/post', (req, res) => {
 });
 
 // Hoang API
-r.put('/v2/truetest/usage', (req, res) => {
+r.put('/v2/admin/truetest/usage', (req, res) => {
   const headers = req.headers;
   const accountId = headers['x-account-id'];
   if (!accountId) {
@@ -40,7 +40,7 @@ r.put('/v2/truetest/usage', (req, res) => {
   res.status(200).json({ usedQuota: 3, generatedTestCases: 181 });
 });
 
-r.get('/v2/truetest/quota', (req, res) => {
+r.get('/v2/admin/truetest/quota', (req, res) => {
   const accountId = req?.query?.accountId;
 
   if (!accountId) {
