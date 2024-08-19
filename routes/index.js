@@ -37,10 +37,7 @@ r.put('/v2/admin/truetest/usage', (req, res) => {
   if (!accountId) {
     return res.status(400).json({ success: false, message: 'Missing x-account-id header' });
   }
-  res.status(200).json({
-    usedAuts: 3, // allow negative number
-    generatedTestCases: 181 // positive number
-});
+  res.status(200).json({ usedQuota: 3, generatedTestCases: 181 });
 });
 
 r.get('/v2/admin/truetest/quota', (req, res) => {
@@ -53,14 +50,12 @@ r.get('/v2/admin/truetest/quota', (req, res) => {
   const response = {
     "enabled": true,
     "accountId": 101,
-    "auts": 9, // Number of auts that user purchased
-    "usedAuts": 3,
+    "quota": 9,
     "source": "TRIAL_REQUEST", // RECURLY | TRIAL_REQUEST
     "startDate": "2024-08-08T00:00:00Z",
     "expiryDate": "2025-07-07T00:00:00Z",
-    "testcases": 1000, // Number of testcases that user purchased
-    "generatedTestCases": 181
-};
+    "testcases": 1000
+  };
   res.status(200).json({ ...response });
 });
 
